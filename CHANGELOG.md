@@ -1,3 +1,7 @@
+## Landing 0.7.10 — 2026-11-26
+
+- Add a wide «Nuevo · Acuerdos» band to the home «Explora» grid linking to acuerdos.firmar.ec (utm_source=firmar.ec, utm_medium=home); acceptance wording only, no legal-validity claims.
+
 ## Landing 0.7.9 — 2026-09-18
 
 - Align llms.txt source repository with the public IDK Manager canonical repository; both existing GitHub mirrors remain valid.

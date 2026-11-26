@@ -54,6 +54,19 @@ const links = [
   },
 ];
 
+// Producto hermano (sitio propio, solo en español). Banda ancha para no
+// descuadrar la rejilla de 3 columnas. Sin promesas de validez legal: es
+// aceptación electrónica con Constancia, no firma con certificado.
+const acuerdos = {
+  href: 'https://acuerdos.firmar.ec/?utm_source=firmar.ec&utm_medium=home',
+  icon: 'i-lucide-handshake',
+  badge: es ? 'Nuevo' : 'New',
+  title: es ? 'Acuerdos: aceptación de documentos' : 'Acuerdos: document acceptance (in Spanish)',
+  body: es
+    ? 'Envía un PDF a hasta 10 personas; cada una lo acepta y recibe su copia con una Constancia. Únete a la lista de espera del piloto sin costo.'
+    : 'Send a PDF to up to 10 people; each one accepts it and gets a copy with a proof of acceptance. Join the waitlist for the free pilot.',
+};
+
 const stats = {
   routeKey: 'estadisticas',
   icon: 'i-lucide-trending-up',
@@ -134,8 +147,25 @@ const linkOverlay =
       </li>
     ))}
 
-    <!-- Banner ancho: estadísticas con mini-gráfico decorativo -->
+    <!-- Banda ancha: Acuerdos (producto hermano en su propio subdominio) -->
     <li class="sm:col-span-2 lg:col-span-3" data-reveal style="--reveal-delay:300ms">
+      <div class={`${cardBase} flex items-center gap-5 p-5 md:p-6`}>
+        <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/10">
+          <span class={`${acuerdos.icon} text-xl text-brand-500`} aria-hidden="true"></span>
+        </span>
+        <div class="min-w-0 flex-1">
+          <p class="mb-1 inline-flex items-center rounded-full border border-brand-500/25 bg-brand-500/[0.06] px-2 py-0.5 font-mono text-[0.65rem] uppercase tracking-[0.16em] text-brand-600 dark:text-brand-400">{acuerdos.badge}</p>
+          <h3 class="font-display text-base font-semibold leading-snug mb-0.5 flex items-center gap-1.5">
+            <a href={acuerdos.href} class={linkOverlay}>{acuerdos.title}</a>
+            <span class="i-lucide-arrow-up-right text-xs text-ink-400 transition-transform duration-200 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-500" aria-hidden="true"></span>
+          </h3>
+          <p class="text-xs leading-relaxed text-ink-500 dark:text-ink-400">{acuerdos.body}</p>
+        </div>
+      </div>
+    </li>
+
+    <!-- Banner ancho: estadísticas con mini-gráfico decorativo -->
+    <li class="sm:col-span-2 lg:col-span-3" data-reveal style="--reveal-delay:360ms">
       <div class={`${cardBase} flex items-center gap-5 overflow-hidden p-5 md:p-6`}>
         <span class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/10">
           <span class={`${stats.icon} text-xl text-brand-500`} aria-hidden="true"></span>
